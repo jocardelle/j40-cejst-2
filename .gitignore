@@ -1,4 +1,6 @@
 *.env
+client/.env.development
+docker-compose.yml
 .idea
 .vscode
 
