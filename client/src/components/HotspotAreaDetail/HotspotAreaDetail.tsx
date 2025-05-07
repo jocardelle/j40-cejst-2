@@ -12,6 +12,7 @@ import PrioritizationCopy from "../PrioritizationCopy";
 import PrioritizationCopy2 from "../PrioritizationCopy2";
 import TractDemographics from "../TractDemographics";
 import TractInfo from "../TractInfo";
+import HotspotInfo from "../HotspotInfo";
 import TractPrioritization from "../TractPrioritization";
 
 // Styles and constants
@@ -172,6 +173,14 @@ const HotspotAreaDetail = ({properties}: IHotspotAreaDetailProps) => {
       ` ${properties[constants.TRIBAL_AREAS_COUNT_CONUS]}` :
       ` null`,
   );
+
+  // Define data for hotspots
+  const zScore = properties[constants.GI_STAR_BURDEN] ?
+    properties[constants.GI_STAR_BURDEN] :
+    constants.MISSING_DATA_STRING;
+  const pValue = properties[constants.PSIM_BURDEN] ?
+    properties[constants.PSIM_BURDEN] :
+    constants.MISSING_DATA_STRING;
 
   // Fix constants.MISSING_DATA_STRING import
   const blockGroup = properties[constants.GEOID_PROPERTY] ?
@@ -1101,6 +1110,10 @@ const HotspotAreaDetail = ({properties}: IHotspotAreaDetailProps) => {
         I think this will need condition filtering depending on whether a tract
         is a hotspot, coldspot, or NA
       </p>
+
+      {/* Tract Info */}
+      <HotspotInfo zScore={zScore} pValue={pValue} />
+
       {/* Tract Info */}
       <TractInfo
         blockGroup={blockGroup}

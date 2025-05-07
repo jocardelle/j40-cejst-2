@@ -18,13 +18,13 @@ import Language from '../Language';
 import {PAGES_ENDPOINTS, USWDS_BREAKPOINTS} from '../../data/constants';
 import * as COMMON_COPY from '../../data/copy/common';
 // import siteLogo from '../../images/j40-logo-v2.png';
-import siteLogo from '../../images/bren2.svg';
+// import siteLogo from '../../images/bren2.svg';
+import siteLogo from '../../images/circle_logo.svg';
 // import UpdateBanner from '../UpdateBanner';
 import * as styles from './J40Header.module.scss';
 
-
 interface IJ40Header {
-  location: Location
+  location: Location;
 }
 
 /**
@@ -38,7 +38,7 @@ interface IJ40Header {
  * @param {Location} location
  * @return {JSX.Element}
  */
-const J40Header = ({location}:IJ40Header) => {
+const J40Header = ({location}: IJ40Header) => {
   const intl = useIntl();
 
   // grab last segment of location pathname
@@ -73,7 +73,7 @@ const J40Header = ({location}:IJ40Header) => {
    * nav links) to occur anytime the device width changes.
    */
   const {width} = useWindowSize();
-  useEffect( () => {
+  useEffect(() => {
     if (width < USWDS_BREAKPOINTS.DESKTOP) {
       setIsOpen([true, true]);
     } else {
@@ -98,9 +98,17 @@ const J40Header = ({location}:IJ40Header) => {
      * When on desktop only, the dropdown nav links (Meth and About) should close if any of the other ones
      * are still open. This next set of logic handles that.
      */
-    if (index === 0 && isOpen[1] === true && width > USWDS_BREAKPOINTS.DESKTOP) {
+    if (
+      index === 0 &&
+      isOpen[1] === true &&
+      width > USWDS_BREAKPOINTS.DESKTOP
+    ) {
       setIsOpen([isOpen[0], false]);
-    } else if (index === 1 && isOpen[0] === true && width > USWDS_BREAKPOINTS.DESKTOP) {
+    } else if (
+      index === 1 &&
+      isOpen[0] === true &&
+      width > USWDS_BREAKPOINTS.DESKTOP
+    ) {
       setIsOpen([false, isOpen[1]]);
     }
   };
@@ -114,21 +122,24 @@ const J40Header = ({location}:IJ40Header) => {
       to={PAGES_ENDPOINTS.METHODOLOGY}
       key={'methodology'}
       activeClassName="usa-current"
-      data-cy={'nav-link-methodology'}>
+      data-cy={'nav-link-methodology'}
+    >
       {intl.formatMessage(COMMON_COPY.HEADER.METHODOLOGY)}
     </Link>,
     <Link
       to={PAGES_ENDPOINTS.DOWNLOADS}
       key={'downloads'}
       activeClassName="usa-current"
-      data-cy={'nav-link-downloads'}>
+      data-cy={'nav-link-downloads'}
+    >
       {intl.formatMessage(COMMON_COPY.HEADER.DOWNLOADS)}
     </Link>,
     <Link
       to={PAGES_ENDPOINTS.PREVIOUS_VERSIONS}
       key={'previous-versions'}
       activeClassName="usa-current"
-      data-cy={'nav-link-previous-versions'}>
+      data-cy={'nav-link-previous-versions'}
+    >
       {intl.formatMessage(COMMON_COPY.HEADER.PREVIOUS_VERSIONS)}
     </Link>,
   ];
@@ -142,20 +153,22 @@ const J40Header = ({location}:IJ40Header) => {
       to={PAGES_ENDPOINTS.ABOUT}
       key={'about'}
       activeClassName="usa-current"
-      data-cy={'nav-link-about'}>
+      data-cy={'nav-link-about'}
+    >
       {intl.formatMessage(COMMON_COPY.HEADER.ABOUT)}
     </Link>,
     <Link
       to={PAGES_ENDPOINTS.FAQS}
       key={'faqs'}
       activeClassName="usa-current"
-      data-cy={'nav-link-faqs'}>
+      data-cy={'nav-link-faqs'}
+    >
       {intl.formatMessage(COMMON_COPY.HEADER.FAQS)}
     </Link>,
   ];
 
   // Methodology & Data Nav component
-  const MethNav = () =>
+  const MethNav = () => (
     <>
       {/* Add a className of usa-current anytime this component renders when the location of the app is on
       the Methodology page or the downloads page. This will style the nav link with a bottom border */}
@@ -163,8 +176,8 @@ const J40Header = ({location}:IJ40Header) => {
         className={
           lastSegmentLocation === PAGES_ENDPOINTS.METHODOLOGY.slice(1) ||
           lastSegmentLocation === PAGES_ENDPOINTS.DOWNLOADS.slice(1) ?
-          'usa-current' :
-          ''
+            'usa-current' :
+            ''
         }
         key="methDropDown"
         label={intl.formatMessage(COMMON_COPY.HEADER.METHODOLOGY)}
@@ -172,19 +185,18 @@ const J40Header = ({location}:IJ40Header) => {
         isOpen={isOpen[0]}
         onToggle={(): void => onToggle(0)}
         data-cy={'nav-dropdown-methodology'}
-      >
-      </NavDropDownButton>
+      ></NavDropDownButton>
       <Menu
-        id='methMenu'
-        type='subnav'
+        id="methMenu"
+        type="subnav"
         items={methPageSubNavLinks}
         isOpen={isOpen[0]}
-      >
-      </Menu>
-    </>;
+      ></Menu>
+    </>
+  );
 
   // About Nav component
-  const AboutNav = () =>
+  const AboutNav = () => (
     <>
       {/* Add a className of usa-current anytime this component renders when the location of the app is on
       the About, FAQS or Public Eng page. This will style the nav link with a bottom border */}
@@ -192,8 +204,8 @@ const J40Header = ({location}:IJ40Header) => {
         className={
           lastSegmentLocation === PAGES_ENDPOINTS.ABOUT.slice(1) ||
           lastSegmentLocation === PAGES_ENDPOINTS.FAQS.slice(1) ?
-          'usa-current' :
-          ''
+            'usa-current' :
+            ''
         }
         key="aboutDropDown"
         label={intl.formatMessage(COMMON_COPY.HEADER.ABOUT)}
@@ -201,16 +213,15 @@ const J40Header = ({location}:IJ40Header) => {
         isOpen={isOpen[1]}
         onToggle={(): void => onToggle(1)}
         data-cy={'nav-dropdown-about'}
-      >
-      </NavDropDownButton>
+      ></NavDropDownButton>
       <Menu
-        id='aboutMenu'
-        type='subnav'
+        id="aboutMenu"
+        type="subnav"
         items={aboutPageSubNavLinks}
         isOpen={isOpen[1]}
-      >
-      </Menu>
-    </>;
+      ></Menu>
+    </>
+  );
 
   // Navigation links for app
   const navLinks = [
@@ -218,35 +229,34 @@ const J40Header = ({location}:IJ40Header) => {
       to={PAGES_ENDPOINTS.EXPLORE}
       key={'explore-map'}
       activeClassName="usa-current"
-      data-cy={'nav-link-explore-the-map'}>
+      data-cy={'nav-link-explore-the-map'}
+    >
       {intl.formatMessage(COMMON_COPY.HEADER.EXPLORE)}
     </Link>,
-    <MethNav key="methDropDown"/>,
-    <AboutNav key="aboutDropDown"/>,
-    // <Link
-    //   to={PAGES_ENDPOINTS.CONTACT}
-    //   key={'contact'}
-    //   activeClassName="usa-current"
-    //   data-cy={'nav-link-contact'}>
-    //   {intl.formatMessage(COMMON_COPY.HEADER.CONTACT)}
-    // </Link>,
+    <MethNav key="methDropDown" />,
+    <AboutNav key="aboutDropDown" />,
+    <Link
+      to={PAGES_ENDPOINTS.CONTACT}
+      key={'contact'}
+      activeClassName="usa-current"
+      data-cy={'nav-link-contact'}
+    >
+      {intl.formatMessage(COMMON_COPY.HEADER.CONTACT)}
+    </Link>,
     <div key={'language'}>
-      <Language isDesktop={false}/>
+      <Language isDesktop={false} />
     </div>,
   ];
 
   return (
     <Header basic={true} role={'banner'}>
-
       {/* Banners */}
       {/* <GovernmentBanner />
       <UpdateBanner/> */}
 
       {/* Logo and Navigation */}
       <J40MainGridContainer>
-
         <Grid className={styles.logoNavRow} row>
-
           {/* Logo */}
           <Grid col={1}>
             <Link
@@ -254,46 +264,46 @@ const J40Header = ({location}:IJ40Header) => {
               key={'explore-map'}
               data-cy={'nav-link-explore-the-map'}
             >
-              <img className={styles.logo} src={siteLogo} alt={`${logoLine1}`} />
+              <img
+                className={styles.logo}
+                src={siteLogo}
+                alt={`${logoLine1}`}
+              />
             </Link>
           </Grid>
 
           {/* Logo Title */}
-          <Grid col={6}>
+          <Grid col={6} style={{alignContent: 'center'}}>
             <Link
               to={PAGES_ENDPOINTS.EXPLORE}
               key={'explore-map'}
               className="remove-link-style"
               data-cy={'nav-link-explore-the-map'}
             >
-              <div className={styles.logoTitle}>
-                {logoLine1}
-              </div>
+              <div className={styles.logoTitle}>{logoLine1}</div>
             </Link>
           </Grid>
 
           {/* Nav links */}
           <Grid col={'fill'} className={styles.navLinks}>
-
             <NavMenuButton
               key={'mobileMenuButton'}
               onClick={toggleMobileNav}
-              label="Menu">
-            </NavMenuButton>
+              label="Menu"
+            ></NavMenuButton>
             <PrimaryNav
               items={navLinks}
               mobileExpanded={mobileNavOpen}
               onToggleMobileNav={toggleMobileNav}
-            >
-            </PrimaryNav>
+            ></PrimaryNav>
           </Grid>
-
         </Grid>
       </J40MainGridContainer>
 
       {/* Alert */}
-      {<J40MainGridContainer>
-        {/* <Alert
+      {
+        <J40MainGridContainer>
+          {/* <Alert
           className={styles.alert}
           type="info"
           heading={intl.formatMessage(COMMON_COPY.ALERTS.ALERT_2_TITLE.TITLE)}
@@ -301,14 +311,14 @@ const J40Header = ({location}:IJ40Header) => {
           {COMMON_COPY.ALERTS.ALERT_2_DESCRIPTION}
         </Alert> */}
 
-        {/* <Alert
+          {/* <Alert
           className={styles.alert}
           type="info"
           heading={intl.formatMessage(COMMON_COPY.ALERTS.ALERT_1_TITLE.TITLE)}
           headingLevel={'h1'}>
           {COMMON_COPY.ALERTS.ALERT_1_DESCRIPTION}
         </Alert> */}
-      </J40MainGridContainer>
+        </J40MainGridContainer>
       }
     </Header>
   );

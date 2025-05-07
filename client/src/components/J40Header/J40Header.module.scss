@@ -5,7 +5,7 @@
   @include u-margin-top(4);
 
   .logo {
-    @include u-width(10);
+    @include u-width(15);
     @include u-padding("05");
   }
 
@@ -16,6 +16,8 @@
     @include typeset("sans", 8, 3);
     max-width: 270px;
     min-width: 218px;
+    justify-content: center;
+    // align-items: left;
   }
 
   .navLinks {

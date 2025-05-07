@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import * as Plot from '@observablehq/plot';
 import * as d3 from 'd3';
 
+// // Can add things from d3 as well, j40map uses
+// // d3.easecubic to zoom from place to place on click
+
 const ObservableTest = () => {
   const [data, setData] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -71,7 +74,7 @@ const ObservableTest = () => {
   );
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    if (sortedData.length > 0) {
       const chart = Plot.plot({
         marks: [
           Plot.barY(sortedData, {
@@ -102,9 +105,15 @@ const ObservableTest = () => {
         },
       });
 
-      const container = document.getElementById('chart-container-1');
+      // document.getElementById('chart')?.appendChild(chart);
+      // const container = document.getElementById('chart');
+      // if (container) {
+      //   container.innerHTML = ''; // Clear any previous chart
+      //   container.appendChild(chart);
+      // }
+      const container = document.getElementById('chart');
       if (container) {
-        container.innerHTML = ''; // Clear any previous chart
+        // container.innerHTML = ''; // Clear any previous chart
         container.appendChild(chart);
       }
 
@@ -151,9 +160,7 @@ const ObservableTest = () => {
       });
 
       return () => chart.remove();
-    }, 0); // Let the browser render layout first
-
-    return () => clearTimeout(timeout);
+    }
   }, [sortedData]);
 
   if (error) {
@@ -164,7 +171,7 @@ const ObservableTest = () => {
     return <div>Loading Data...</div>;
   }
 
-  return <div id="chart-container-1" />;
+  return <div id="chart" />;
 };
 
 export default ObservableTest;

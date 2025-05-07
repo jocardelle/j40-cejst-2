@@ -35,15 +35,26 @@ $theme-color-base-darkest: "gray-90";
 $theme-color-base-ink: "gray-90";
 
 // Primary colors
-$theme-color-primary-family: "blue";
-$theme-color-primary-lightest: false;
-$theme-color-primary-lighter: "blue-10";
-$theme-color-primary-light: "blue-30";
-$theme-color-primary: "blue-60v";
-$theme-color-primary-vivid: "blue-warm-60v";
-$theme-color-primary-dark: "blue-warm-70v";
-$theme-color-primary-darker: "blue-warm-80v";
-$theme-color-primary-darkest: false;
+$theme-color-primary-family: "green";
+
+$theme-color-primary-lightest: "green-5";
+$theme-color-primary-lighter: "green-10";
+$theme-color-primary-light: "green-20";
+$theme-color-primary: "green-40v";
+$theme-color-primary-vivid: "green-50v";
+$theme-color-primary-dark: "green-60v";
+$theme-color-primary-darker: "green-70v";
+$theme-color-primary-darkest: "green-80v";
+
+// $theme-color-primary-family: "blue";
+// $theme-color-primary-lightest: false;
+// $theme-color-primary-lighter: "blue-10";
+// $theme-color-primary-light: "blue-30";
+// $theme-color-primary: "green-60v";
+// $theme-color-primary-vivid: "blue-warm-60v";
+// $theme-color-primary-dark: "blue-warm-70v";
+// $theme-color-primary-darker: "blue-warm-80v";
+// $theme-color-primary-darkest: false;
 
 // Secondary colors
 $theme-color-secondary-family: "red";

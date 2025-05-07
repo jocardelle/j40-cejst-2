@@ -26,7 +26,8 @@ services:
       - ./data/data-pipeline/data_pipeline/data-versions:/data/data-pipeline/data-versions
       # - ./data/data-pipeline/data_pipeline/data/tribal:/data/data-pipeline/data_pipeline/data/tribal
     ports:
-      - 3001:8080
+      - 5001:8080
+      # - 3001:8080
     environment:
       TZ: America/Los_Angeles
 
@@ -43,6 +44,7 @@ services:
     volumes:
       - ./client/src:/client/src
     ports:
-      - 3009:6000
+        - 8000:6000
+        # - 3009:6000
     depends_on:
       - "j40_score_server"

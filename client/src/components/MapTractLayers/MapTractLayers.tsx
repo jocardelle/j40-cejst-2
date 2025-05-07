@@ -419,6 +419,21 @@ const MapTractLayers = ({
               }}
               minzoom={constants.GLOBAL_MIN_ZOOM_HIGH}
             />
+
+            {/* High zoom layer (static) - controls the border between features */}
+            <Layer
+              id={constants.FEATURE_BORDER_LAYER_ID}
+              source-layer={constants.SCORE_SOURCE_LAYER}
+              type="line"
+              paint={{
+                'line-color': constants.PSIM_FEATURE_BORDER_COLOR,
+                'line-width': constants.FEATURE_BORDER_WIDTH,
+                'line-opacity': constants.FEATURE_BORDER_OPACITY,
+              }}
+              maxzoom={constants.GLOBAL_MAX_ZOOM_FEATURE_BORDER}
+              minzoom={constants.GLOBAL_MIN_ZOOM_FEATURE_BORDER}
+            />
+
             <Layer
               id={constants.PSIM_IND_SELECTED_FEATURE_BORDER_LAYER_ID}
               source-layer={constants.SCORE_SOURCE_LAYER}
@@ -631,6 +646,21 @@ const MapTractLayers = ({
               }}
               minzoom={constants.GLOBAL_MIN_ZOOM_HIGH}
             />
+
+            {/* High zoom layer (static) - controls the border between features */}
+            <Layer
+              id={constants.FEATURE_BORDER_LAYER_ID}
+              source-layer={constants.SCORE_SOURCE_LAYER}
+              type="line"
+              paint={{
+                'line-color': constants.ADD_FEATURE_BORDER_COLOR,
+                'line-width': constants.FEATURE_BORDER_WIDTH,
+                'line-opacity': constants.FEATURE_BORDER_OPACITY,
+              }}
+              maxzoom={constants.GLOBAL_MAX_ZOOM_FEATURE_BORDER}
+              minzoom={constants.GLOBAL_MIN_ZOOM_FEATURE_BORDER}
+            />
+
             {/* High zoom ADDITIVE layer (dynamic) - border styling around the selected feature */}
             <Layer
               id={constants.ADD_IND_SELECTED_FEATURE_BORDER_LAYER_ID}

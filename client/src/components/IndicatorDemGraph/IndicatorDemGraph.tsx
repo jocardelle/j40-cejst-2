@@ -9,7 +9,7 @@ const ObservableTest = () => {
   useEffect(() => {
     // Fetch the data
     const url =
-      'http://localhost:5001/data/data-pipeline/data_pipeline/data/score/geojson/burd_dem_long.json';
+      'http://localhost:5001/data/data-pipeline/data_pipeline/data/score/geojson/ind_dem_long.json';
     console.log('Fetching data from:', url);
 
     fetch(url)
@@ -75,7 +75,7 @@ const ObservableTest = () => {
       const chart = Plot.plot({
         marks: [
           Plot.barY(sortedData, {
-            x: 'total_burdens',
+            x: 'total_criteria',
             y: 'percentage',
             fill: 'racial_group',
             tip: {
@@ -87,7 +87,7 @@ const ObservableTest = () => {
           }),
         ],
         y: {axis: true, label: 'Percentage'},
-        x: {label: 'Total Burdens'},
+        x: {label: 'Total Indicators'},
         color: {
           range: colorPalette,
           legend: true,
@@ -102,7 +102,7 @@ const ObservableTest = () => {
         },
       });
 
-      const container = document.getElementById('chart-container-1');
+      const container = document.getElementById('chart-container-2');
       if (container) {
         container.innerHTML = ''; // Clear any previous chart
         container.appendChild(chart);
@@ -121,11 +121,12 @@ const ObservableTest = () => {
 
       // Start from base (y = chart height, height = 0)
       bars
-          .attr('y', svg.node()?.getBoundingClientRect().height || 300) // use fallback
+          .attr('y', svg.node()?.getBoundingClientRect().height || 300)
           .attr('height', 0)
           .transition()
-          .duration(800)
-          .delay((_, i) => i * 10) // optional stagger
+          .duration(600)
+      // Stagger how the bars come up
+          .delay((_, i) => i * 8)
           .attr('y', (_, i, nodes) => {
             return d3.select(nodes[i]).attr('data-final-y');
           })
@@ -134,6 +135,7 @@ const ObservableTest = () => {
           });
 
       // Manually style legend because I couldn't get it to work inside observable
+      // The text isn't contained inside p/text tag at all, it's inside a span
       const legendSpans = container?.querySelectorAll('span');
       legendSpans?.forEach((span) => {
         span.style.fontSize = '14px';
@@ -143,6 +145,7 @@ const ObservableTest = () => {
         span.style.gap = '0.4em';
         span.style.fontFamily = 'Lexend, sans-serif';
 
+        // Set the dim for the little square
         const svg = span.querySelector('svg');
         if (svg) {
           svg.setAttribute('width', '17');

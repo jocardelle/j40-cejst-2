@@ -15,6 +15,9 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "baseUrl": "./",
+    // NEW
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "./src/**/*ts",

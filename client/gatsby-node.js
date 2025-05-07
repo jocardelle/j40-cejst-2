@@ -12,6 +12,9 @@ exports.onCreateWebpackConfig = ({stage, loaders, actions}) => {
       alias: {
         'mapbox-gl': 'maplibre-gl',
       },
+      // From copilot to fix observable imports
+      modules: [path.resolve(__dirname, 'node_modules'), 'node_modules'], // Add this line
+      extensions: ['.js', '.jsx', '.ts', '.tsx'], // Ensure TypeScript files are resolved
     },
   });
 };

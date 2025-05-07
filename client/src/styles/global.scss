@@ -46,7 +46,7 @@ There are 3 things that should be included in this file:
 
 $primary-color: #6d332e; // Used for header font color - selection color is #005EA2
 $j40-blue-background-color: #f0f0ea; // Hex value of 'blue-cool-5'
-$disadvantaged-color-side-panel: #d47d76;
+$disadvantaged-color-side-panel: #D47D76;
 
 // The j40-element mixin is used to create any font element. E.g. <h1>, <p> tags, etc.
 // Arguments to the mixins must be tokens from USWDS
@@ -128,7 +128,8 @@ li.usa-nav__primary-item a {
 }
 
 li.usa-nav__primary-item a:hover::after {
-  background-color: #6f3331;
+  // This changes the hover bar in the dropdown menu in header
+  // background-color: #d5dd8b;
   border-radius: 0;
   content: "";
   display: block;
@@ -275,7 +276,8 @@ Beacon - the beacon's color (*-location-dot) and proximity animation (::before),
 */
 .mapboxgl-user-location-dot,
 .mapboxgl-user-location-dot::before {
-  background-color: #0076d6 !important;
+  // This did not change the color of the button on the accordion side panel
+  background-color: #2E8B58 !important;
 }
 
 .mapboxgl-user-location-dot::after {
@@ -327,6 +329,8 @@ Beacon - the beacon's color (*-location-dot) and proximity animation (::before),
     height: 1.66em;
     width: 1.66em;
     box-sizing: border-box;
+    // Tried to change this as well, didn't see what it was changing
+    // background-color: #d3f0e0;
     background-color: #ffffff;
     border-width: 2px;
     border-color: #000000;
@@ -448,7 +452,8 @@ button.usa-accordion__button[aria-expanded=true]:has(div[class*="disCategoryCont
     font-size: .8rem;
 
     .usa-accordion__button {
-      background-color: white;
+      // Don't know what this changed either...
+      background-color: #ffffff;
       padding: .6rem;
     }
   }
