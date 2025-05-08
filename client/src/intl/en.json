@@ -1,4 +1,8 @@
 {
+  "about.page.acnowledgements.paragraph.1": {
+    "defaultMessage": "This is a placeholder.",
+    "description": "Navigate to the About page. This is the Acknowledgements paragraph"
+  },
   "about.page.getInvolved.title": {
     "defaultMessage": "Get involved",
     "description": "Navigate to the About page. This is the sub heading of page"
@@ -78,6 +82,14 @@
   "about.page.title.text": {
     "defaultMessage": "About",
     "description": "Navigate to the About page. This is the about page title text"
+  },
+  "acknowledgements.para1": {
+    "defaultMessage": "This is a placeholder for the acknowledgements paragraph",
+    "description": "Navigate to the About page. This is the subheading of acknowledgements"
+  },
+  "acknowledgements.title": {
+    "defaultMessage": "Acknowledgements",
+    "description": "Navigate to the About page. This is the acknowledgements headingl"
   },
   "common.pages.alerts.additional_docs_available.description": {
     "defaultMessage": "Download new <link1>technical support</link1> and other documentation and <link2>send feedback</link2>.",

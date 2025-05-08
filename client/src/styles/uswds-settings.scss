@@ -2,6 +2,9 @@
 
 // Import the entire theme spacing folder
 @import "./theme/uswds-theme-spacing";
+@import "./theme/uswds-theme-color";
+@import "./theme/uswds-theme-typography";
+@import "./theme/uswds-theme-general";
 
 // Selected general styles found in styles/theme/_uswds-theme-general.scss:
 $theme-image-path: "../../node_modules/uswds/src/img";

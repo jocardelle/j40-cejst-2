@@ -181,3 +181,26 @@ export const HOW_YOU_CAN_HELP_LIST_ITEMS = {
     }}
   />,
 };
+
+export const ACKNOwLEDGEMENTS = defineMessages({
+  TITLE: {
+    id: 'acknowledgements.title',
+    defaultMessage: 'Acknowledgements',
+    description: 'Navigate to the About page. This is the acknowledgements headingl',
+  },
+  PARA1: {
+    id: 'acknowledgements.para1',
+    defaultMessage: 'This is a placeholder for the acknowledgements paragraph',
+    description: 'Navigate to the About page. This is the subheading of acknowledgements',
+  },
+});
+
+
+export const ACKNOWLEDGEMENTS_CONTENT = {
+  PARA1:
+  <FormattedMessage
+    id={'about.page.acnowledgements.paragraph.1'}
+    defaultMessage={`This is a placeholder.`}
+    description={'Navigate to the About page. This is the Acknowledgements paragraph'}
+  />,
+};
