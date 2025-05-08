@@ -17,24 +17,23 @@ services:
   #     PIPELINE_CMD: $PIPELINE_CMD
 
   # The score_server serves the data-pipeline volume as a URL
-  j40_score_server:
-    image: j40_score_server
-    container_name: j40_score_server_1
+  j40_score_server_jo:
+    image: j40_score_server_jo
+    container_name: j40_score_server_1_jo
     build: data/data-serve/.
     volumes:
       - ./data/data-pipeline/data_pipeline/data/score:/data/data-pipeline/data_pipeline/data/score
       - ./data/data-pipeline/data_pipeline/data-versions:/data/data-pipeline/data-versions
       # - ./data/data-pipeline/data_pipeline/data/tribal:/data/data-pipeline/data_pipeline/data/tribal
     ports:
-      - 5001:8080
-      # - 3001:8080
+      - 3007:8080
     environment:
       TZ: America/Los_Angeles
 
   #The j40_website service runs the web app / map / site
-  j40_website:
-    image: j40_website
-    container_name: j40_website_1
+  j40_website_jo:
+    image: j40_website_jo
+    container_name: j40_website_1_jo
     build: client
     environment:
       # See the client readme for more info on environment variables:
@@ -44,7 +43,7 @@ services:
     volumes:
       - ./client/src:/client/src
     ports:
-        - 8000:6000
-        # - 3009:6000
+      - 3008:6000
     depends_on:
-      - "j40_score_server"
+      - "j40_score_server_jo"
+
